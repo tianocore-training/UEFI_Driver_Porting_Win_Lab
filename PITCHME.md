@@ -1001,7 +1001,23 @@ Note:
 
 Same as slide
      
-  
+---?image=/assets/images/slides/Slide45.JPG
+@title[Additional Porting]
+<p align="right"><span class="gold" >Additional Porting</span></p>  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<span style="font-size:0.8em" >Refer to the UEFI Drivers Writer’s Guide for more tips – <a href="https://legacy.gitbook.com/book/edk2-docs/edk-ii-uefi-driver-writer-s-guide/details">Pdf link</a></span>
+
+Note:
+Use the UEFI Driver Wizard to create a starting point for new drivers on EDK II
 
 
 ---  

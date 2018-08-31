@@ -105,10 +105,11 @@ Note:
 @title[Lab 2 Build and Test Driver]
 <p align="right"><span class="gold" >Lab 2: Build and Test Driver</span></p>
 <span style="font-size:0.8em" >Open a VS  Command Prompt and type: `cd C:/FW/edk2` then </span>
+<pre>
 ```
   C:/FW/edk2> edksetup
-
 ```
+</pre>
 <p style="line-height:80%"><span style="font-size:0.8em" > Build `MyWizardDriver` </span></p>
 
 ```

@@ -104,23 +104,20 @@ Note:
 ---?image=/assets/images/slides/Slide7.JPG
 @title[Lab 2 Build and Test Driver]
 <p align="right"><span class="gold" >Lab 2: Build and Test Driver</span></p>
-<br>
 <span style="font-size:0.8em" >Open a VS  Command Prompt and type: `cd C:/FW/edk2` then </span>
 ```shell
 C:/FW/edk2> edksetup
 ```
-<div class="left1">
 <p style="line-height:80%"><span style="font-size:0.8em" > Build the MyWizardDriver with the Nt32 Emulation</span></p>
+<div class="left1">
 <pre>
 ```
   C:/FW/edk2> Build
   C:/FW/edk2> Build Run
 ```
 </pre>
-<p style="line-height:80%"><span style="font-size:0.7em" >Load the UEFI Driver from the shell 
-<br>&nbsp;&nbsp;At the Shell prompt, type  `fs0:`
-<br>&nbsp;&nbsp; Type:  `load MyWizardDriver.efi` </span></p>
-<p style="line-height:80%"><span style="font-size:0.7em" ><b>Build ERRORS:</b> </span><span style="font-size:0.6em" >Copy the solution files from `~/FW/LabSampleCode/LabSolutions/LessonC.1` to `C:/FW/edk2/MyWizardDriver`	</span></p>
+<p style="line-height:80%"><span style="font-size:0.7em" >Load the UEFI Driver from the shell <br>&nbsp;&nbsp;At the Shell prompt, type  `fs0:`<br>&nbsp;&nbsp;Type:  `load MyWizardDriver.efi` </span></p>
+<p style="line-height:80%"><span style="font-size:0.6em" ><b>Build ERRORS:</b> Copy the solution files from `~/FW/LabSampleCode/LabSolutions/LessonC.1` to `C:/FW/edk2/MyWizardDriver`	</span></p>
 </div>
 <div class="right1">
 <ul style="list-style-type:none">
@@ -131,7 +128,7 @@ Note:
 continue to next slide
 
 
----?image=/assets/images/slides/Slide8JPG
+---?image=/assets/images/slides/Slide8.JPG
 @title[Lab 2 Test Driver Drivers]
 <p align="right"><span class="gold" >Lab 2: Test Driver</span></p>
 <br>
@@ -228,12 +225,14 @@ Same as slide
 <p align="right"><span class="gold" >Lab 3: Build and Test Driver</span></p>
 <br>
 <p style="line-height:80%"><span style="font-size:0.8em" > Build the MyWizardDriver </span></p>
-```shell
+
+```
   C:/FW/edk2> Build
   C:/FW/edk2> Build Run
 ```
+
 <p style="line-height:80%"><span style="font-size:0.7em" >Load the UEFI Driver from the shell
-<br>&nbsp;&nbsp;&nbsp; At the Shell prompt, type &nbsp;<span style="background-color: #101010"><font color="yellow">`Shell> `</font>`fs0:`</span></span>
+<br>&nbsp;&nbsp;&nbsp; At the Shell prompt, type &nbsp;<span style="background-color: #101010"><font color="yellow">`Shell> `</font>`fs0:`</span>
 <br>&nbsp;&nbsp;&nbsp; Type:&nbsp; <span style="background-color: #101010"><font color="yellow">`FS0:\> `&nbsp;</font>`load MyWizardDriver.efi`</span></span></p>
 
 <div class="left">
@@ -268,7 +267,7 @@ Lab 3 finished
 ---?image=/assets/images/slides/Slide15.JPG
 @title[Lab 4: Port Supported-Start]
 <p align="center"><span class="gold" >Lab 4: Porting Supported and Start</span></p>
-<span style="font-size:0.9em" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Review the Driver Binding Protocol</span>
+<span style="font-size:01.1em" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Review the Driver Binding Protocol</b></span>
 
 Note:
 
@@ -278,9 +277,8 @@ Note:
 ---
 @title[Lab 4: Supported Port]
 <p align="right"><span class="gold" >Lab 4: The `Supported()` Port</span></p>
-<br>
-<span style="font-size:0.8em" >The UEFI Driver Wizard produced a `Supported()` function but it only returns `EFI_UNSUPPORTED` </span><br>
-<span style="font-size:0.8em" ><Font color="yellow">Supported Goals: </font> </span></li>
+<p style="line-height:80%"><span style="font-size:0.8em" >The UEFI Driver Wizard produced a `Supported()` function but it only returns `EFI_UNSUPPORTED` </span></p>
+<span style="font-size:0.9em" ><Font color="yellow"><b>Supported Goals: </b></font> </span></li>
 <ul style="list-style-type:disc">
   <li><span style="font-size:0.8em" >Checks if the driver supports the device for the specified controller handle </span></li>
   <li><span style="font-size:0.8em" >Associates the driver with the Serial I/O protocol </span></li>
@@ -377,7 +375,7 @@ This code checks for a specific protocol before returning a status for the suppo
 ---
 @title[Lab 4: Notice UEFI Driver Wizard Includes  ]
 <p align="right"><span class="gold" >Lab 4: Notice UEFI Driver Wizard Includes</span></p>
-<ul>
+<ul style="line-height:0.8;">
    <li><span style="font-size:0.8em" ><b>Open</b>&nbsp;&nbsp;</span><span style="font-size:0.7em" > `C:/FW/edk2/MyWizardDriver/MyWizardDriver.h`</span></li>
    <li><span style="font-size:0.8em" ><b>Notice</b>&nbsp;&nbsp;</span><span style="font-size:0.7em" > the following include statement is already added by the driver wizard: </span></li>
 <pre lang="c">
@@ -441,7 +439,7 @@ Note:
 ---
 @title[Lab 4: Update Start 02 ]
 <p align="right"><span class="gold" >Lab 4: Update Start Add Code </span></p>
-<span style="font-size:0.8em" ><b>Copy & Paste</b>&nbsp;&nbsp;</span><span style="font-size:0.65em" > the following code for the start function ` MyWizardDriverDriverBindingStart()`:</span>
+<p style="line-height:80%"><span style="font-size:0.8em" ><b>Copy & Paste</b>&nbsp;&nbsp;</span><span style="font-size:0.65em" > the following code for the start function ` MyWizardDriverDriverBindingStart()`:</span></p>
 ```C
 	if (DummyBufferfromStart == NULL) {     // was buffer already allocated?
 		DummyBufferfromStart = (CHAR16*)AllocateZeroPool (DUMMY_SIZE * sizeof(CHAR16));
@@ -539,13 +537,13 @@ Note:
 <p align="right"><span class="gold" >Lab 4: Build and Test Driver</span></p>
 <br>
 <p style="line-height:80%"><span style="font-size:0.8em" > Build the MyWizardDriver </span></p>
-```shell
+```
   C:/FW/edk2> Build
   C:/FW/edk2> Build Run
 ```
 <p style="line-height:80%"><span style="font-size:0.7em" >Load the UEFI Driver from the shell
-<br>&nbsp;&nbsp;&nbsp; At the Shell prompt, type &nbsp;<span style="background-color: #101010"><font color="yellow">`Shell> `</font>`fs0:`</span></span>
-<br>&nbsp;&nbsp;&nbsp; Type:&nbsp; <span style="background-color: #101010"><font color="yellow">`FS0:\> `&nbsp;</font>`load MyWizardDriver.efi`</span></span></p>
+<br>&nbsp;&nbsp;&nbsp;<span style="background-color: #101010"><font color="yellow">`Shell> `</font>`fs0:`</span>
+<br>&nbsp;&nbsp;&nbsp;<span style="background-color: #101010"><font color="yellow">`FS0:\> `&nbsp;</font>`load MyWizardDriver.efi`</span></span></p>
 
 
 Note: 
@@ -554,9 +552,9 @@ Note:
 Same as slide
 
 
----?image=/assets/images/slides/Slide21.JPG
-@title[Lab 4 Build and Test Driver 03]
-<p align="left"><span class="gold" >Lab 4: Build and Test Driver</span></p>
+---?image=/assets/images/slides/Slide27.JPG
+@title[Lab 4 Build and Test Driver 02]
+<p align="right"><span class="gold" >Lab 4: Build and Test Driver</span></p>
 <br>
 <div class="left2">
 <ul>
@@ -662,7 +660,7 @@ Note:
 <p align="right"><span class="gold" >Lab 5: Update MyWizardDriver.c</span></p>
 <br>
 <span style="font-size:0.8em" ><b>Open</b>&nbsp;&nbsp;</span><span style="font-size:0.7em" > "`C:/FW/edk2/MyWizardDriver/MyWizardDriver.c`"</span><br>
-<span style="font-size:0.8em" ><b>Copy & Paste</b>&nbsp;&nbsp;</span><span style="font-size:0.65em" > the following  4 lines after the `#include "MyWizardDriver.h"` statement: </span><br>
+<p style="line-height:80%"><span style="font-size:0.8em" ><b>Copy & Paste</b>&nbsp;&nbsp;</span><span style="font-size:0.65em" > the following  4 lines after the `#include "MyWizardDriver.h"` statement: </span></p>
 ```C
 #include "MyWizardDriver.h"
 
@@ -746,7 +744,7 @@ CreateNVVariable()
 @title[Lab 5: Update .h]
 <p align="right"><span class="gold" >Lab 5: Update MyWizardDriver.h</span></p>
 <span style="font-size:0.8em" ><b>Open</b>&nbsp;&nbsp;</span><span style="font-size:0.7em" > "`C:/FW/edk2/MyWizardDriver/MyWizardDriver.h`"</span><br>
-<p style="line-height:80%"><span style="font-size:0.8em" ><b>Copy & Paste</b>&nbsp;&nbsp;</span><span style="font-size:0.65em" > the following "#include" after the list of library include statements: </span></p>
+<p style="line-height:70%"><span style="font-size:0.8em" ><b>Copy & Paste</b>&nbsp;&nbsp;</span><span style="font-size:0.65em" > the following "#include" after the list of library include statements: </span></p>
 ```C++
 // Libraries
 // . . .
@@ -766,16 +764,19 @@ Note:
 ---?image=/assets/images/slides/Slide35.JPG
 @title[Lab 5 Build and Test Driver]
 <p align="right"><span class="gold" >Lab 5: Build and Test Driver</span></p>
-<br>
+
 <p style="line-height:80%"><span style="font-size:0.8em" > Build the MyWizardDriver </span></p>
-```shell
+<div class="left">
+<pre>
+```
   C:/FW/edk2> Build
   C:/FW/edk2> Build Run
+
 ```
-<div class="left">
+</pre>
 <span style="font-size:0.8em" ><b>Load</b> the UEFI Driver </span><br>
-<span style="font-size:0.7em" >&nbsp;&nbsp;&nbsp;<span style="background-color: #101010"><font color="yellow">`Shell> `</font>`fs0:`</span></span><br>
-<span style="font-size:0.7em" >&nbsp;&nbsp;&nbsp;<span style="background-color: #101010"><font color="yellow">`FS0:\> `&nbsp;</font>`load MyWizardDriver.efi`</span></span><br>
+<span style="font-size:0.5em" >&nbsp;&nbsp;&nbsp;<span style="background-color: #101010"><font color="yellow">`Shell> `</font>`fs0:`</span></span><br>
+<span style="font-size:0.5em" >&nbsp;&nbsp;&nbsp;<span style="background-color: #101010"><font color="yellow">`FS0:\> `&nbsp;</font>`load MyWizardDriver.efi`</span></span><br>
 <span style="font-size:0.7em" >Observe the Buffer address returned by the debug statement in the VS Command window</span></span><br>
 <span style="font-size:0.7em" ></span><br>
 
@@ -914,8 +915,8 @@ Note:
 ```
 <div class="left">
 <span style="font-size:0.8em" ><b>Load</b> the UEFI Driver </span><br>
-<span style="font-size:0.7em" >&nbsp;&nbsp;&nbsp;<span style="background-color: #101010"><font color="yellow">`Shell> `</font>`fs0:`</span></span><br>
-<span style="font-size:0.7em" >&nbsp;&nbsp;&nbsp;<span style="background-color: #101010"><font color="yellow">`FS0:\> `&nbsp;</font>`load MyWizardDriver.efi`</span></span><br>
+<span style="font-size:0.5em" >&nbsp;&nbsp;&nbsp;<span style="background-color: #101010"><font color="yellow">`Shell> `</font>`fs0:`</span></span><br>
+<span style="font-size:0.5em" >&nbsp;&nbsp;&nbsp;<span style="background-color: #101010"><font color="yellow">`FS0:\> `&nbsp;</font>`load MyWizardDriver.efi`</span></span><br>
 <span style="font-size:0.7em" >Observe the Buffer address is at `0x0587f010` as this slide example</span><br>
 
 </div>

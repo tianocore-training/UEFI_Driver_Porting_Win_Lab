@@ -101,29 +101,22 @@ Note:
 
 
 
----?image=/assets/images/slides/Slide7.JPG
+---
 @title[Lab 2 Build and Test Driver]
 <p align="right"><span class="gold" >Lab 2: Build and Test Driver</span></p>
 <span style="font-size:0.8em" >Open a VS  Command Prompt and type: `cd C:/FW/edk2` then </span>
-```shell
+```
 C:/FW/edk2> edksetup
 ```
 <p style="line-height:80%"><span style="font-size:0.8em" > Build the MyWizardDriver with the Nt32 Emulation</span></p>
-<div class="left1">
-<pre>
 ```
   C:/FW/edk2> Build
   C:/FW/edk2> Build Run
 ```
-</pre>
 <p style="line-height:80%"><span style="font-size:0.7em" >Load the UEFI Driver from the shell <br>&nbsp;&nbsp;At the Shell prompt, type  `fs0:`<br>&nbsp;&nbsp;Type:  `load MyWizardDriver.efi` </span></p>
 <p style="line-height:80%"><span style="font-size:0.6em" ><b>Build ERRORS:</b> Copy the solution files from `~/FW/LabSampleCode/LabSolutions/LessonC.1` to `C:/FW/edk2/MyWizardDriver`	</span></p>
 </div>
-<div class="right1">
-<ul style="list-style-type:none">
-  <li><span style="font-size:0.8em" >&nbsp;  </li>
-</ul>
-</div>
+
 Note: 
 continue to next slide
 

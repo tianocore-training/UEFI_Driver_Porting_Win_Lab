@@ -108,14 +108,18 @@ Note:
 ```
 C:/FW/edk2> edksetup
 ```
-<p style="line-height:80%"><span style="font-size:0.8em" > Build the MyWizardDriver with the Nt32 Emulation</span></p>
+<p style="line-height:80%"><span style="font-size:0.8em" > Build `MyWizardDriver` </span></p>
+
 ```
   C:/FW/edk2> Build
   C:/FW/edk2> Build Run
 ```
-<p style="line-height:80%"><span style="font-size:0.7em" >Load the UEFI Driver from the shell <br>&nbsp;&nbsp;At the Shell prompt, type  `fs0:`<br>&nbsp;&nbsp;Type:  `load MyWizardDriver.efi` </span></p>
+
+<p style="line-height:80%"><span style="font-size:0.7em" >Load the UEFI Driver from the shell
+<br>&nbsp;&nbsp;&nbsp; At the Shell prompt, type &nbsp;<span style="background-color: #101010"><font color="yellow">`Shell> `</font>`fs0:`</span>
+<br>&nbsp;&nbsp;&nbsp; Type:&nbsp; <span style="background-color: #101010"><font color="yellow">`FS0:\> `&nbsp;</font>`load MyWizardDriver.efi`</span></span></p>
 <p style="line-height:80%"><span style="font-size:0.6em" ><b>Build ERRORS:</b> Copy the solution files from `~/FW/LabSampleCode/LabSolutions/LessonC.1` to `C:/FW/edk2/MyWizardDriver`	</span></p>
-</div>
+
 
 Note: 
 continue to next slide
@@ -175,7 +179,8 @@ Same as slide
 
 Note:
 
-Same as slide
+
+END of Lab 2
 
 
 ---?image=/assets/images/slides/Slide_LabSec.JPG
@@ -597,7 +602,7 @@ With QEMU there is a serial device so the driver’s start function would then s
 <br>
 <p align="center"><span class="gold" >Lab 5: Adding a NVRAM Variable Steps </span></p>
 <br>
-<ol style="line-height:0.8;">
+<ol style="line-height:0.9;">
   <li><span style="font-size:0.8em" >Create .h file with new <font color="#87b7e4">`typedef`</font> definition and its own <font color="#87b7e4">`GUID`</font> </span></li>
   <li><span style="font-size:0.8em" >Include the new .h file in the driver's top .h file </span></li>
   <li><span style="font-size:0.8em" >`EntryPoint()` Init new buffer for NVRam Variable   </span></li>
@@ -806,6 +811,7 @@ Same as slide
 <p align="right"><span class="gold" >Lab 5: Verify NVRAM Created by Driver</span></p>
 <br>
 <span style="font-size:0.7em" >At the Shell prompt, type &nbsp;&nbsp;<span style="background-color: #101010"><font color="yellow">`FS0:\> `</font>`dmpstore -all -b`</span></span><br>
+<div class="left1">
 <span style="font-size:0.65em" >Observe new the NVRAM variable "`MWD_NVData`" was created and filled with 0x00s</span></span><br>
 <br>
 <br>
@@ -814,8 +820,10 @@ Same as slide
 <br>
 <br>
 <span style="font-size:0.7em" >Exit, type <font color="yellow">`FS0:/ >`</font> `Reset`</span><br>
-
-
+</div>
+<div class="right1">
+<span style="font-size:0.8em" ></span>
+</div>
 Note:
 
 End of Lab 5
@@ -900,20 +908,21 @@ Note:
 ---?image=/assets/images/slides/Slide41.JPG
 @title[Lab 6 Build and Test Driver]
 <p align="right"><span class="gold" >Lab 6: Build and Test Driver</span></p>
-<br>
+<div class="left1">
 <p style="line-height:80%"><span style="font-size:0.8em" > Build the MyWizardDriver </span></p>
-```shell
+<pre>
+```
   C:/FW/edk2> Build
   C:/FW/edk2> Build Run
 ```
-<div class="left">
+</pre>
 <span style="font-size:0.8em" ><b>Load</b> the UEFI Driver </span><br>
 <span style="font-size:0.5em" >&nbsp;&nbsp;&nbsp;<span style="background-color: #101010"><font color="yellow">`Shell> `</font>`fs0:`</span></span><br>
 <span style="font-size:0.5em" >&nbsp;&nbsp;&nbsp;<span style="background-color: #101010"><font color="yellow">`FS0:\> `&nbsp;</font>`load MyWizardDriver.efi`</span></span><br>
 <span style="font-size:0.7em" >Observe the Buffer address is at `0x0587f010` as this slide example</span><br>
 
 </div>
-<div class="right">
+<div class="right1">
 <span style="font-size:0.8em" ></span>
 </div>
 

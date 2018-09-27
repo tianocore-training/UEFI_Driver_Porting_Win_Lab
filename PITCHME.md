@@ -6,7 +6,8 @@
 #### How to Write a UEFI Driver Lab - Windows
 
 <br>
-<span style="font-size:0.75em" ><a href='http://www.tianocore.org'>tianocore.org</a></span>
+<span style="font-size:0.75em" ><a href='http://www.tianocore.org'>tianocore.org</a></span><br>
+<span style="font-size:0.5em" >See also <a href="https://github.com/Laurie0131/UEFI_Driver_Porting_Win_lab/blob/master/LabGuide.md">LabGuide.md</a> for Copy&Paste examples in labs</span>
 Note:
   PITCHME.md for UEFI / EDK II Training  UEFI Driver Porting Lab - Windows
 

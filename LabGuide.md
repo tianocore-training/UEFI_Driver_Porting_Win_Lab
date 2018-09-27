@@ -1,8 +1,8 @@
 
 ## Slide 1
-### <span class="gold"   >UEFI & EDK II Training</span>
+# UEFI & EDK II Training
 
-#### How to Write a UEFI Driver Lab - Windows
+## How to Write a UEFI Driver Lab - Windows
 
 
 ---  

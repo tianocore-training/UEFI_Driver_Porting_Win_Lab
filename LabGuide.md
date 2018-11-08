@@ -40,7 +40,7 @@ You will include the driver in the Nt32 project. <br>Build the UEFI Driver from 
 <p align="right"><span class="gold" >Lab 2: Build the UEFI Driver</span></p>
 <br>
 <ul>
-   <li>Perform <a href="https://gitpitch.com/Laurie0131/Platform_Build_Win_Lab/master#/9">Lab Setup</a> from previous Nt32Pkg Labs </li>
+   <li>Perform <a href="https://gitpitch.com/tianocore-training/Platform_Build_Win_Lab/master#/9">Lab Setup</a> from previous Nt32Pkg Labs </li>
    <li>Open `C:/FW/edk2/Nt32Pkg/Nt32Pkg.dsc`</li>
    <li>Add the following to the `[Components]` section: </span><br><span style="font-size:0.9em" >*Hint:*add to the last module in the `[Components]` section  </li>
 

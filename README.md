@@ -32,7 +32,7 @@
 # UEFI_Driver_Porting_Win_lab
 How to Write a UEFI Driver using UEFI Driver Model - Windows
 
-To see the Slides goto https://gitpitch.com/Laurie0131/UEFI_Driver_Porting_Win_lab/master#/
+To see the Slides goto https://gitpitch.com/tianocore-training/UEFI_Driver_Porting_Win_lab/master#/
 
 Since this is a lab, to follow examples for copy & paste, 
-use the following Markdown link <a href="https://github.com/Laurie0131/UEFI_Driver_Porting_Win_lab/blob/master/LabGuide.md" >LabGuide.md</a>
+use the following Markdown link <a href="https://github.com/tianocore-training/UEFI_Driver_Porting_Win_lab/blob/master/LabGuide.md" >LabGuide.md</a>

@@ -7,7 +7,7 @@
 
 <br>
 <span style="font-size:0.75em" ><a href='http://www.tianocore.org'>tianocore.org</a></span><br>
-<span style="font-size:0.5em" >See also <a href="https://github.com/Laurie0131/UEFI_Driver_Porting_Win_lab/blob/master/LabGuide.md">LabGuide.md</a> for Copy&Paste examples in labs</span>
+<span style="font-size:0.5em" >See also <a href="https://github.com/tianocore-training/UEFI_Driver_Porting_Win_lab/blob/master/LabGuide.md">LabGuide.md</a> for Copy&Paste examples in labs</span>
 Note:
   PITCHME.md for UEFI / EDK II Training  UEFI Driver Porting Lab - Windows
 
@@ -88,7 +88,7 @@ Note:
 <p align="right"><span class="gold" >Lab 2: Build the UEFI Driver</span></p>
 <br>
 <ul>
-   <li><span style="font-size:0.8em" >Perform <a href="https://gitpitch.com/Laurie0131/Platform_Build_Win_Lab/master#/9">Lab Setup</a> from previous Nt32Pkg Labs  </span></li>
+   <li><span style="font-size:0.8em" >Perform <a href="https://gitpitch.com/tianocore-training/Platform_Build_Win_Lab/master#/9">Lab Setup</a> from previous Nt32Pkg Labs  </span></li>
    <li><span style="font-size:0.8em" >Open `C:/FW/edk2/Nt32Pkg/Nt32Pkg.dsc`</span></li>
    <li><span style="font-size:0.8em" >Add the following to the `[Components]` section: </span><br><span style="font-size:0.6em" >*Hint:*add to the last module in the `[Components]` section   </span></li>
 <pre lang="php">

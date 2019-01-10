@@ -73,9 +73,29 @@ You will include the driver in the Nt32 project. <br>Build the UEFI Driver from 
 <span style="font-size:0.8em" >&nbsp;  </span>
 </div>
 
----?image=/assets/images/slides/Slide5.JPG
+
+---
 @title[Compile a UEFI Driver?]
-<p align="right"><span class="gold" >Compile a UEFI Driver</span></p>
+<p align="right"><span class="gold" ><b>Compile a UEFI Driver</b></span></p>
+<br>
+<table id="recTable">
+	<tr>
+       <td colspan="2" bgcolor="#64205d" height=".025" align="center"><p style="line-height:010%"><span style="font-size:0.8em" ><b>Two Ways to Compile a Driver</b></span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#300a24" height=".02" align="center"><p style="line-height:010%"><span style="font-size:0.75em" ><i>Standalone</i></span></p></td>
+		<td  bgcolor="#300a24" height=".02" align="center"><p style="line-height:010%"><span style="font-size:0.75em" ><i>In a Project</i></span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#300a24" height=".02"><p style="line-height:060%"><span style="font-size:0.65em" >The build command directly compiles the .INF file </span></p></td>
+		<td  bgcolor="#300a24" height=".02"><p style="line-height:060%"><span style="font-size:0.65em" >Include the .INF file in the project’s .DSC file</span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#300a24" height=".02"><p style="line-height:060%"><span style="font-size:0.65em" >Results:  The driver’s  .EFI file is located in the Build directory</span></p></td>
+		<td  bgcolor="#300a24" height=".02"><p style="line-height:060%"><span style="font-size:0.65em" >Results:  The driver’s .EFI file is a part of the project in the Build directory</span></p></td>
+	</tr>
+</table>
+
 
 Note:
 |Standalone |In a Project	|
@@ -83,12 +103,13 @@ Note:
 |The build command directly compiles the .INF file |Include the .INF file in the project’s .DSC file	|
 |Results:  The driver’s  .EFI file is located in the Build directory|	Results:  The driver’s .EFI file is a part of the project in the Build directory|
 
+
 ---
 @title[Lab2: Build the UEFI Driver?]
 <p align="right"><span class="gold" >Lab 2: Build the UEFI Driver</span></p>
 <br>
 <ul>
-   <li><span style="font-size:0.8em" >Perform <a href="https://gitpitch.com/tianocore-training/Platform_Build_Win_Lab/master#/9">Lab Setup</a> from previous Nt32Pkg Labs  </span></li>
+   <li><span style="font-size:0.8em" >Perform <a href="https://gitpitch.com/tianocore-training/Platform_Build_Win_Lab/master#/2">Lab Setup</a> from previous Nt32Pkg Labs  </span></li>
    <li><span style="font-size:0.8em" >Open `C:/FW/edk2/Nt32Pkg/Nt32Pkg.dsc`</span></li>
    <li><span style="font-size:0.8em" >Add the following to the `[Components]` section: </span><br><span style="font-size:0.6em" >*Hint:*add to the last module in the `[Components]` section   </span></li>
 <pre lang="php">
@@ -265,12 +286,107 @@ Lab 3 finished
 
 
 
----?image=/assets/images/slides/Slide15.JPG
+---?image=/assets/images/slides/Slide15_1.JPG
 @title[Lab 4: Port Supported-Start]
 <p align="center"><span class="gold" >Lab 4: Porting Supported and Start</span></p>
 <span style="font-size:01.1em" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Review the Driver Binding Protocol</b></span>
 
+
+
+@snap[north-west span-20 ]
+<br>
+<br>
+<br>
+<br><p style="line-height:40%" align="left"><span style="font-size:02.250em;" >@fa[star  gp-bullet-cyan] </span></p>
+@snapend
+
+@snap[north-east span-85 ]
+<br>
+<br>
+<br>
+<br><p style="line-height:85%" align="left"><span style="font-size:01.25em; font-family:Consolas;" >@color[yellow](Supported&lpar;&rpar;) </span> <span style="font-size:0.85em;" ><br> 
+Determines if a driver supports a controller </span></p>
+@snapend
+
+
+
+@snap[north-west span-20 ]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><p style="line-height:40%" align="left"><span style="font-size:02.250em;" >@fa[star  gp-bullet-ltgreen] </span></p>
+@snapend
+
+@snap[north-east span-85 ]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><p style="line-height:85%" align="left"><span style="font-size:01.25em; font-family:Consolas;" >@color[yellow](Start&lpar;&rpar;) </span> <span style="font-size:0.85em;" ><br> 
+Starts a driver on a controller &amp; Installs Protocols </span></p>
+@snapend
+
+
+
+@snap[north-west span-20 ]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><p style="line-height:40%" align="left"><span style="font-size:02.250em;" >@fa[star  gp-bullet-gold] </span></p>
+@snapend
+
+@snap[north-east span-85 ]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><p style="line-height:85%" align="left"><span style="font-size:01.25em; font-family:Consolas;" >@color[yellow](Stop&lpar;&rpar;) </span> <span style="font-size:0.85em;" ><br> 
+Stops a driver from managing a controller </span></p>
+@snapend
+
 Note:
+
+- Supported ()
+- Start()
+- Stop()
+
+Supported() - Checks if a driver supports a controller Check should not change hardware state of controller 
+Minimize execution time, move complex I/O to Start() May be called for controller that is already managed Child is optionally specified
+
+Start() - Starts a driver on a controller
+Can create ALL child handles or ONE child handle
+A driver is not required to support starting ONE child handle.  It may always create ALL child handles.
+
+Stop() - Stops a driver from managing a controller
+Destroys all specified child handles 
+If no children are specified, controller is stopped immediately
+Stopping a bus controller requires two calls
+
+
+
+### tasks
 
 - Port Supported() to check for a specific protocol before returning ‘Success’
 - Port Start() to allocate a memory buffer and fill it with a specific value
@@ -1002,20 +1118,52 @@ Note:
 
 Same as slide
      
----?image=/assets/images/slides/Slide45.JPG
+---
 @title[Additional Porting]
-<p align="right"><span class="gold" >Additional Porting</span></p>  
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<p align="right"><span class="gold" ><b>Additional Porting</b></span></p>  
 
 
-<span style="font-size:0.8em" >Refer to the UEFI Drivers Writer’s Guide for more tips – <a href="https://legacy.gitbook.com/book/edk2-docs/edk-ii-uefi-driver-writer-s-guide/details">Pdf link</a></span>
+
+@snap[north-west span-95 fragment]
+<br>
+<p style="line-height:50%" ><br><br>&nbsp;</p>
+@box[bg-navy text-white rounded my-box-pad2  ](<p style="line-height:70%" ><span style="font-size:0.9em; font-weight: bold;" >Adding strings and forms to setup -&lpar;HII&rpar;<br>&nbsp;</span></p>)
+<br>
+@snapend
+
+
+@snap[north-west span-80 fragment]
+<br>
+<br>
+<br>
+<br>
+<p style="line-height:50%" ><br>&nbsp;<br>&nbsp;</p>
+@box[bg-royal text-white rounded my-box-pad2  ](<p style="line-height:70%" ><span style="font-size:0.9em; font-weight: bold;" >Publish &amp; consume protocols<br>&nbsp;</span></p>)
+<br>
+@snapend
+
+
+
+@snap[north-west span-70 fragment]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p style="line-height:50%" ><br>&nbsp;<br>&nbsp;</p>
+@box[bg-purple-pp text-white rounded my-box-pad2  ](<p style="line-height:80%" ><span style="font-size:0.9em; font-weight: bold;" >Hardware initialization<br>&nbsp;</span></p>)
+<br>
+@snapend
+
+
+
+
+@snap[south-west span-90]
+<span style="font-size:0.7em" >Refer to the UEFI Drivers Writer’s Guide for more tips – <a href="https://legacy.gitbook.com/book/edk2-docs/edk-ii-uefi-driver-writer-s-guide/details">Pdf link</a></span>
+<br>
+@snapend
 
 Note:
 Use the UEFI Driver Wizard to create a starting point for new drivers on EDK II

@@ -71,7 +71,7 @@ Review UEFI Driver Wizard Lab:
 <br>
 
 In this lab, you’ll build a UEFI Driver created by the UEFI Driver Wizard.<br>
-You will include the driver in the Nt32 project. <br>Build the UEFI Driver from the Driver Wizard 
+You will include the driver in the EmulatorPkg project. <br>Build the UEFI Driver from the Driver Wizard 
 
 
 
@@ -103,7 +103,7 @@ You will include the driver in the Nt32 project. <br>Build the UEFI Driver from 
 ### Lab 2: Build the UEFI Driver
 
 <ul>
-   <li>Perform <a href="https://gitpitch.com/tianocore-training/Platform_Build_Win_Emulator_Lab/master#/9">Lab Setup</a> from previous Nt32Pkg Labs </li>
+   <li>Perform <a href="https://gitpitch.com/tianocore-training/Platform_Build_Win_Emulator_Lab/master#/9">Lab Setup</a> from previous EmulatorPkg Labs </li>
    <li>Open `C:/FW/edk2-ws/edk2/EmulatorPkg/EmulatorPkg.dsc`</li>
    <li>Add the following to the `[Components]` section: </span><br>
    

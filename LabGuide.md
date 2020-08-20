@@ -4,26 +4,58 @@
 
 ## How to Write a UEFI Driver Lab - Windows
 
+<!---
+ LabGuide.md for UEFI Driver Porting Win Lab
+
+  Copyright (c) 2020, Intel Corporation. All rights reserved.<BR>
+
+  Redistribution and use in source (original document form) and 'compiled'
+  forms (converted to PDF, epub, HTML and other formats) with or without
+  modification, are permitted provided that the following conditions are met:
+
+  1) Redistributions of source code (original document form) must retain the
+     above copyright notice, this list of conditions and the following
+     disclaimer as the first lines of this file unmodified.
+
+  2) Redistributions in compiled form (transformed to other DTDs, converted to
+     PDF, epub, HTML and other formats) must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+
+  THIS DOCUMENTATION IS PROVIDED BY TIANOCORE PROJECT "AS IS" AND ANY EXPRESS OR
+  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+  EVENT SHALL TIANOCORE PROJECT  BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF
+  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-->
 
 ---  
 ## Slide 2 @title[Lesson Objective]
-<p align="left">Lesson Objective </p><br>
+### Lesson Objective 
 
 - Compile a UEFI driver template created from UEFI Driver Wizard 
 - Test driver w/ Windows Emulation using UEFI Shell 2.0 
 - Port code into the template driver 
 
-
+---
 ## Slide 3 @title[Lab 1: UEFI Driver Template]
+### Lab 1: UEFI Driver Template
 
 Use this lab, if you’re not able to create a UEFI Driver Template using the UEFI Driver Wizard. 
 
 Skip if LAB 1 UEFI Driver Wizard completed successfully
+---
 ## Slide 4 @title[Lab 1: Get UEFI Driver Template]
 
 If  UEFI Driver Wizard does not work: 
 
-Copy the directory UefiDriverTemplate from    
+Copy the directory `UefiDriverTemplate` from    
     . . ./FW/LabSampleCode/ to  C:/FW/edk2-ws/edk2 
 
 Rename Directory UefiDriverTemplate to MyWizardDriver
@@ -35,7 +67,7 @@ Review UEFI Driver Wizard Lab:
 ---
 ## Slide 5 @title[Lab 2: Building a UEFI Driver]
 
-<p align="Left">Lab 2: Building a UEFI Driver</p>
+### Lab 2: Building a UEFI Driver
 <br>
 
 In this lab, you’ll build a UEFI Driver created by the UEFI Driver Wizard.<br>
@@ -44,23 +76,23 @@ You will include the driver in the Nt32 project. <br>Build the UEFI Driver from 
 
 
 ## Slide 6 @title[Compile a UEFI Driver?]
-<p align="left">Compile a UEFI Driver</p>
+### Compile a UEFI Driver</p>
 
 <table id="recTable">
 	<tr>
-       <td colspan="2" bgcolor="#64205d" height=".025" align="center"><p style="line-height:010%"><span style="font-size:0.8em" ><b>Two Ways to Compile a Driver</b></span></p></td>
+       <td colspan="2"  height=".025" align="center"><p style="line-height:010%"><span style="font-size:0.8em" ><b>Two Ways to Compile a Driver</b></span></p></td>
 	</tr>
 	<tr>
-		<td  bgcolor="#300a24" height=".02" align="center"><p style="line-height:010%"><span style="font-size:0.75em" ><i>Standalone</i></span></p></td>
-		<td  bgcolor="#300a24" height=".02" align="center"><p style="line-height:010%"><span style="font-size:0.75em" ><i>In a Project</i></span></p></td>
+		<td   height=".02" align="center"><p style="line-height:0100%"><span style="font-size:0.95em" ><i>Standalone</i></span></p></td>
+		<td   height=".02" align="center"><p style="line-height:0100%"><span style="font-size:0.95em" ><i>In a Project</i></span></p></td>
 	</tr>
 	<tr>
-		<td  bgcolor="#300a24" height=".02"><p style="line-height:060%"><span style="font-size:0.65em" >The build command directly compiles the .INF file </span></p></td>
-		<td  bgcolor="#300a24" height=".02"><p style="line-height:060%"><span style="font-size:0.65em" >Include the .INF file in the project’s .DSC file</span></p></td>
+		<td   height=".02"><p style="line-height:0100%"><span style="font-size:0.95em" >The build command directly compiles the .INF file </span></p></td>
+		<td   height=".02"><p style="line-height:0100%"><span style="font-size:0.95em" >Include the .INF file in the project’s .DSC file</span></p></td>
 	</tr>
 	<tr>
-		<td  bgcolor="#300a24" height=".02"><p style="line-height:060%"><span style="font-size:0.65em" >Results:  The driver’s  .EFI file is located in the Build directory</span></p></td>
-		<td  bgcolor="#300a24" height=".02"><p style="line-height:060%"><span style="font-size:0.65em" >Results:  The driver’s .EFI file is a part of the project in the Build directory</span></p></td>
+		<td   height=".02"><p style="line-height:0100%"><span style="font-size:0.95em" >Results:  The driver’s  .EFI file is located in the Build directory</span></p></td>
+		<td   height=".02"><p style="line-height:0100%"><span style="font-size:0.95em" >Results:  The driver’s .EFI file is a part of the project in the Build directory</span></p></td>
 	</tr>
 </table>
 
@@ -68,14 +100,15 @@ You will include the driver in the Nt32 project. <br>Build the UEFI Driver from 
 
 ---
 ## Slide 7 @title[Lab2: Build the UEFI Driver?]
-<p align="left"><span class="gold" >Lab 2: Build the UEFI Driver</span></p>
-<br>
+### Lab 2: Build the UEFI Driver
+
 <ul>
    <li>Perform <a href="https://gitpitch.com/tianocore-training/Platform_Build_Win_Emulator_Lab/master#/9">Lab Setup</a> from previous Nt32Pkg Labs </li>
    <li>Open `C:/FW/edk2-ws/edk2/EmulatorPkg/EmulatorPkg.dsc`</li>
    <li>Add the following to the `[Components]` section: </span><br>
    
-   <span style="font-size:0.9em" >*Hint:*add to the last module in the `[Components]` section  </li>
+   
+   *Hint:*add to the last module in the `[Components]` section  </li>
 
 ```
     # Add new modules here
@@ -86,11 +119,11 @@ You will include the driver in the Nt32 project. <br>Build the UEFI Driver from 
 </ul>
 
 
-
+---
 
 ## Slide 8 @title[Lab 2 Build and Test Driver]
-<p align="left">Lab 2: Build and Test Driver</p>
-Open a VS  Command Prompt and type: `cd C:/FW/edk2` then </span>
+### Lab 2: Build and Test Driver
+Open a VS  Command Prompt and type: `cd C:/FW/edk2-ws` then </span>
 
 ```
   C:/FW/edk2-ws/> setenv.bat
@@ -106,8 +139,8 @@ Build `MyWizardDriver` </p>
 ```
 
 Load the UEFI Driver from the shell
-<br>&nbsp;&nbsp;&nbsp; At the Shell prompt, type &nbsp;<font color="gray">`Shell> `</font>`fs0:`
-<br>&nbsp;&nbsp;&nbsp; Type:&nbsp;<font color="gray">`FS0:\> `&nbsp;</font>`load MyWizardDriver.efi`<br>
+<br>&nbsp;&nbsp;&nbsp; At the Shell prompt, type &nbsp; `Shell> fs0:`
+<br>&nbsp;&nbsp;&nbsp; Type:&nbsp; `FS0:\> load MyWizardDriver.efi`<br>
 
 
 <b>Build ERRORS:</b> Copy the solution files from `~/FW/LabSampleCode/LabSolutions/LessonC.1` to `C:/FW/edk2-ws/edk2/MyWizardDriver`	
@@ -115,9 +148,9 @@ Load the UEFI Driver from the shell
 
 
 
-
+---
 ## Slide 9 @title[Lab 2 Test Driver Drivers]
-<p align="left">Lab 2: Test Driver</p>
+### Lab 2: Test Driver</p>
 <br>
 At the shell prompt Type: `drivers`<br>
 
@@ -127,12 +160,9 @@ The `drivers` command will display the driver information and a driver handle nu
 
 
 
-
-
-
-
+---
 ## Slide 10 @title[Lab 2 Test Driver -Dh]
-<p align="left"><span class="gold" >Lab 2: Test Driver</span></p>
+### <span class="gold" >Lab 2: Test Driver</span></p>
 <br>
 At the shell prompt using the handle from the `drivers` command, Type:&nbsp; `dh -d a9`
 
@@ -140,9 +170,9 @@ At the shell prompt using the handle from the `drivers` command, Type:&nbsp; `dh
 <i>Note:</i>  The value `a9` is the driver handle for MyWizardDriver.  The handle value may change based on your system configuration.(see example screenshot - right)
 
 
-
+---
 ## Slide 11 @title[Lab 2 Test Driver -unload]
-<p align="left">Lab 2: Test Driver</p>
+### Lab 2: Test Driver</p>
 <br>
 At the shell prompt using the handle from the `drivers` command, Type:&nbsp; `unload a9`
 
@@ -150,7 +180,8 @@ At the shell prompt using the handle from the `drivers` command, Type:&nbsp; `un
 See example screenshot - right<br>
 Type:&nbsp; `drivers` again<br><br>
 Notice results of `unload` command<br><br>
-Exit, type <font color="gray">`FS0:/ >`</font> `Reset`<br>
+
+Exit, type  `FS0:/ > Reset`<br>
 
 Note:
 
@@ -162,14 +193,14 @@ END of Lab 2
 ## Slide 12 @title[Lab 3: Component Name Section]
 <br>
 <br>
-<p align="Left">Lab 3: Component Name</p>
+### Lab 3: Component Name</p>
 
 In this lab, you’ll change the information reported to the drivers command using the ComponentName and ComponentName2 protocols.
 
 
 ---
 ## Slide 13 @title[Lab 3: Component Name ]
-<p align="left">Lab 3: Component Name</p>
+### Lab 3: Component Name</p>
 <br>
 
 - <b>Open</b>&nbsp;&nbsp;`C:/FW/edk2-ws/edk2/MyWizardDriver/ComponentName.c`
@@ -189,10 +220,14 @@ In this lab, you’ll change the information reported to the drivers command usi
 - <b>Save</b> and close the file: `C:/FW/edk2-ws/edk2/MyWizardDriver/ComponentName.c`  
 
 
+Note:
 
+The localization is using both the RFC 4646 and the ISO 639-2 Lanuage codes
+as seen with the "`eng;en`"
 
+---
 ## Slide 14 @title[Lab 3 Build and Test Driver]
-<p align="left">Lab 3: Build and Test Driver</p>
+### Lab 3: Build and Test Driver</p>
 <br>
 Build the MyWizardDriver 
 
@@ -202,13 +237,14 @@ Build the MyWizardDriver
 ```
 
 - Load the UEFI Driver from the shell<br>
-- &nbsp;&nbsp;&nbsp; At the Shell prompt, type &nbsp;<font color="gray">`Shell> `</font>`fs0:`<br>
-- &nbsp;&nbsp;&nbsp; Type:&nbsp; <font color="gray">`FS0:\> `&nbsp;</font>`load MyWizardDriver.efi`</span></p>
+
+- &nbsp;&nbsp;&nbsp; At the Shell prompt, type &nbsp; `Shell> fs0:`
+- &nbsp;&nbsp;&nbsp; Type:&nbsp;  `FS0:\> `&nbsp;`load MyWizardDriver.efi`</span></p>
 
 Type:&nbsp; `drivers`<br>
 Observe the change in the string that the driver returned <br>
 <br>
-Exit, type <font color="gray">`FS0:/ >`</font> `Reset`
+Exit, type  `FS0:/> Reset`
 
 
 Note: 
@@ -218,17 +254,17 @@ Lab 3 finished
 ---
 ## Slide 15 @title[Lab 4: Port Supported Section]
 <br>
-<br>
-<p align="Left">Lab 4: Porting the Supported & Start Functions</p>
+
+### Lab 4: Porting the Supported & Start Functions</p>
 <br>
 The UEFI Driver Wizard produced a starting point for driver porting … so now what?<br><br>
 In this lab, you’ll port the “Supported” and “Start” functions for the UEFI driver
 
 
 
-
+---
 ## Slide 16 @title[Lab 4: Port Supported-Start]
-<p align="left">Lab 4: Porting Supported and Start</p>
+### Lab 4: Porting Supported and Start
 <span style="font-size:01.1em" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Review the Driver Binding Protocol</b></span>
 
 
@@ -236,21 +272,22 @@ In this lab, you’ll port the “Supported” and “Start” functions for the
 - Port Start() to allocate a memory buffer and fill it with a specific value
 - Stop() Stops a driver from managing a controller
 
+---
 ## Slide 17 @title[Lab 4: Supported Port]
-<p align="left">Lab 4: The `Supported()` Port</p>
+### Lab 4: The `Supported()` Port</p>
 The UEFI Driver Wizard produced a `Supported()` function but it only returns `EFI_UNSUPPORTED` </span></p>
 
-<Font color="Cyan"><b>Supported Goals: </b></font> 
+<Font color="Green"><b>Supported Goals: </b></font> 
 
 - Checks if the driver supports the device for the specified controller handle 
 - Associates the driver with the Serial I/O protocol 
 - Helps locate a protocol’s specific GUID through  UEFI Boot Services’ function 
 
 
-
+---
 
 ## Slide 18 @title[Lab 4: Help from Robust Libraries]
-<p align="left">Lab 4: Help from Robust Libraries</p>
+### Lab 4: Help from Robust Libraries</p>
 EDK II has libraries to help with porting UEFI Drivers <br>
 
 - `AllocateZeroPool()` include - `[MemoryAllocationLib.h]`  
@@ -265,7 +302,7 @@ Check the MdePkg with libraries help file (.chm format)
 
 ---
 ## Slide 19 @title[Lab 4: Update Supported ]
-<p align="left">Lab 4: Update Supported</p>
+### Lab 4: Update Supported</p>
 
 
 <b>Open</b>&nbsp;&nbsp;`C:/FW/edk2-ws/edk2/MyWizardDriver/MyWizardDriver.c` <br>
@@ -291,9 +328,9 @@ Note:
 
 This code checks for a specific protocol before returning a status for the supported function (EFI_SUCCESS if the protocol GUID exists).
 
-
+---
 ## Slide 20 @title[Lab 4: Update Supported 02 ]
-<p align="left">Lab 4: Update Supported Add Code </p>
+### Lab 4: Update Supported Add Code 
 <b>Copy & Paste</b>&nbsp;&nbsp; the following code for the supported function `MyWizardDriverDriverBindingSupported()`:
 
 
@@ -329,9 +366,10 @@ This code checks for a specific protocol before returning a status for the suppo
 Note:
   end of copy & paste
 
+---
 
 ## Slide 21 @title[Lab 4: Notice UEFI Driver Wizard Includes  ]
-<p align="left">Lab 4: Notice UEFI Driver Wizard Includes</p>
+### Lab 4: Notice UEFI Driver Wizard Includes
 
 - <b>Open</b>&nbsp;&nbsp;`C:/FW/edk2-ws/edk2/MyWizardDriver/MyWizardDriver.h`
 - <b>Notice</b>&nbsp;&nbsp; the following include statement is already added by the driver wizard: 
@@ -361,10 +399,10 @@ Note:
 
 
 
-
+---
 
 ## Slide 22 @title[Lab 4: Update the Start  ]
-<p align="left">Lab 4: Update the `Start()` </p>
+### Lab 4: Update the `Start()` </p>
 
 <b>Copy & Paste</b>&nbsp;&nbsp; the following in  `MyWizardDriver.c` after the <br>`#include “MyWizardDriver.h”` line
 
@@ -374,7 +412,7 @@ CHAR16	*DummyBufferfromStart = NULL;
 
 ```
 
-<b>Locate</b>&nbsp;&nbsp;` MyWizardDriverDriverBindingStart()`,  the start function for this driver and comment out the "`//`" in the line "`return EFI_UNSUPPORTED;` "</span></li>
+<b>Locate</b>&nbsp;&nbsp;` MyWizardDriverDriverBindingStart()`,  the start function for this driver and comment out the "`//`" in the line "`return EFI_UNSUPPORTED;` "
 
 ```c++
 EFI_STATUS
@@ -389,9 +427,10 @@ MyWizardDriverDriverBindingStart (
 }
 ```
 
+---
 
 ## Slide 23 @title[Lab 4: Update Start 02 ]
-<p align="left">Lab 4: Update Start Add Code </p>
+### Lab 4: Update Start Add Code 
 <b>Copy & Paste</b>&nbsp;&nbsp; the following code for the start function ` MyWizardDriverDriverBindingStart()`:
 
 ```c++
@@ -416,10 +455,10 @@ Note:
 - This code checks for an allocated memory buffer. If the buffer doesn’t exist, memory will be allocated and filled with an initial value (0x0042). 
 - this lab's start does **not** do anything useful but if it did it would make calls to gBS->InstallMultipleProtocolInterfaces() to produce potocols and manage other handle devices
 
-
+---
 
 ## Slide 24 @title[Lab 4: Debugging before Testing the Driver ]
-<p align="left">Lab 4: Debugging before Testing the Driver</p>
+### Lab 4: Debugging before Testing the Driver</p>
 <br>
 UEFI drivers can use the EDK II debug library 
 
@@ -428,7 +467,7 @@ UEFI drivers can use the EDK II debug library
 
 
 ## Slide 25 @title[Lab 4: Add Debug statements supported ]
-<p align="left">Lab 4: Add Debug Statements `Supported()`</p>
+### Lab 4: Add Debug Statements `Supported()`</p>
 <b>Copy & Paste</b>&nbsp;&nbsp; the following  `DEBUG ()`  macros for the supported function:
 
 ```c++
@@ -461,9 +500,9 @@ UEFI drivers can use the EDK II debug library
 
 
 
-
+---
 ## Slide 26 @title[Lab 4: Add Debug statements start ]
-<p align="left">Lab 4: Add Debug Statements `Start()`</p>
+### Lab 4: Add Debug Statements `Start()`</p>
 <br>
 <b>Copy & Paste</b>&nbsp;&nbsp; the following `DEBUG` macro for the Start function just before the `return EFI_SUCCESS;` statement
 
@@ -478,10 +517,10 @@ UEFI drivers can use the EDK II debug library
 <b>Save</b>&nbsp;&nbsp; `C:/FW/edk2-ws/edk2/MyWizardDriver/MyWizardDriver.c`
 
 
-
+---
 
 ## Slide 27 @title[Lab 4 Build and Test Driver]
-<p align="left">Lab 4: Build and Test Driver</p>
+### Lab 4: Build and Test Driver</p>
 <br>
 Build the MyWizardDriver 
 
@@ -491,65 +530,71 @@ Build the MyWizardDriver
 
 ```
 Load the UEFI Driver from the shell<br>
-&nbsp;&nbsp;&nbsp;<font color="gray">`Shell> `</font>`fs0:`<br>
-&nbsp;&nbsp;&nbsp;<font color="gray">`FS0:\> `&nbsp;</font>`load MyWizardDriver.efi`
+
+&nbsp;&nbsp;&nbsp; `Shell> fs0:`<br>
+&nbsp;&nbsp;&nbsp; `FS0:\> load MyWizardDriver.efi`
 
 
 
-
+---
 ## Slide 28 @title[Lab 4 Build and Test Driver 02]
-<p align="left">Lab 4: Build and Test Driver</p>
+### Lab 4: Build and Test Driver</p>
 
 - Check the VS console output.
-- Notice Debug messages indicate the driver did not return `EFI_SUCCESS` from the “`Supported()`” function. 
-- See that the "`Start()`" function did <b>NOT</b>get called.
+- Notice Debug messages indicate the driver did not return EFI_SUCCESS from the “`Supported()`” function <b>most</b> of the time.
+- See that the "`Start()`" function did get called and a Buffer was allocated.
 <br>
 <br>
-Exit, type <font color="gray">`FS0:/ >`</font> `Reset`</span><br>
+Exit, type  `FS0:/ > Reset`</span><br>
 <br>
 
 Note:
+
+use the right-side scroll bar with mouse to scroll back to see the “Supported SUCCESS”
+
+
 Finished Lab 4
 
 ---
 ## Slide 29 @title[Lab 5: Create NV Var Section]
 <br>
-<br>
-<p align="Left">Lab 5: Create a NVRAM Variable </p>
+
+### Lab 5: Create a NVRAM Variable 
 <br>
 
 
-- In this lab you’ll create a non-volatile UEFI variable (NVRAM), and set and get the variable to return a successful supported function 
+- In this lab you’ll create a non-volatile UEFI variable (NVRAM), and set and get the variable in the `Start()` function 
 - Use Runtime services to "`SetVariable()`" and "`GetVariable()`"
 
 
  
 Note:
 
-On systems without a serial port, the code from previous lab will not work since the Serial Protocol GUID does not exist. This lab demonstrates another mechanism (also known as “a trick”) to return from the “Supported” function.  
+On systems without a serial port, the code from previous lab will not work since the Serial Protocol GUID does not exist. 
 
 With QEMU there is a serial device so the driver’s start function would then start to manage the serial port by creating child handles. 
 
 
+---
 
 ## Slide 30 @title[Lab 5: Create NV Var steps]
-<br>
-<p align="left">Lab 5: Adding a NVRAM Variable Steps </p>
+
+### Lab 5: Adding a NVRAM Variable Steps </p>
 <br>
 <ol>
-  <li>Create .h file with new <font color="#87b7e4">`typedef`</font> definition and its own <font color="#87b7e4">`GUID`</font> </li>
+  <li>Create .h file with new <font color="blue">`typedef`</font> definition and its own <font color="blue">`GUID`</font> </li>
   <li>Include the new .h file in the driver's top .h file </li>
-  <li>`EntryPoint()` Init new buffer for NVRam Variable   </li>
   <li>`Supported()` make a call to a new function to set/get the new NVRam Variable  </li>
   <li>Before `EntryPoint()` add the new function `CreateNVVariable()` to the driver.c file.</li>
 
 </ol>
 
-
+---
 
 ## Slide 31 @title[Lab 5: Create a new .h file ]
-<p align="left">Lab 5: Create a new .h file</p>
-<b>Create</b>&nbsp;&nbsp;</span><span style="font-size:0.9em" > a new file in your editor called: "`MyWizardDriverNVDataStruc.h`"</span><br>
+### Lab 5: Create a new .h file</p>
+<b>Create</b>&nbsp;&nbsp; a new file in your editor called: "`MyWizardDriverNVDataStruc.h`"<br>
+
 <b>Copy, Paste</b> and then <b>Save</b> this file</b>&nbsp;&nbsp;</span></p>
 
 <hr>
@@ -588,12 +633,13 @@ Note:
 - another Note:  For this lab, you were provided a GUID file.  You can also generate a GUID through the UEFI Driver Wizard or Guidgenerator.com.  But for the purposes of the lab, use the one above.
 
 
-
+---
 
 ## Slide 32 @title[Lab 5: Add New Vars to .c ]
-<p align="left">Lab 5: Update MyWizardDriver.c</span></p>
+### Lab 5: Update MyWizardDriver.c</span></p>
 <br>
-<b>Open</b>&nbsp;&nbsp;</span><span style="font-size:0.9em" > "`C:/FW/edk2-ws/edk2/MyWizardDriver/MyWizardDriver.c`"<br>
+<b>Open</b>&nbsp;&nbsp; "`C:/FW/edk2-ws/edk2/MyWizardDriver/MyWizardDriver.c`"<br>
+
 <b>Copy & Paste</b>&nbsp;&nbsp; the following  4 lines after the `#include "MyWizardDriver.h"` statement: 
 
 ```c++
@@ -607,30 +653,36 @@ MYWIZARDDRIVER_CONFIGURATION   *mMyWizDrv_Conf = &mMyWizDrv_Conf_buffer;  //use 
 
 ```
 
+---
 
 ## Slide 33 @title[Lab 5: Update Suppport for new function ]
-<p align="left">Lab 5: Update MyWizardDriver.c</p>
+### Lab 5: Update MyWizardDriver.c</p>
 <br>
-<b>Locate</b>&nbsp;&nbsp;</span><span style="font-size:0.9em" > "`MyWizardDriverDriverBindingSupported ()`" function<br>
-<b>Comment out</b>&nbsp;&nbsp; the `DEBUG` macro statement and return statement as below:<br>
-<b>Copy & Paste</b>&nbsp;&nbsp; the 7 lines: 1) new call to "`CreateNVVariable();`" 2-6) `if` statement with DEBUG and 7) "`return`"  as below: 
+<b>Locate</b>&nbsp;&nbsp; "`MyWizardDriverDriverBindingStart ()`" function<br>
+
+<b>Copy & Paste</b>&nbsp;&nbsp; the following line at the beginning of the start function to declare a local variable
+```
+  EFI_STATUS                Status;
+```
+<b>Copy & Paste</b>&nbsp;&nbsp; the below 6 lines just before the line "`return EFI_SUPPORTED`": 1) new call to "`CreateNVVariable();`" 2-6) `if` statement with DEBUG and 7) "`return`"  as below: 
 
 ```C++
+  Status = CreateNVVariable();
 	if (EFI_ERROR(Status)) {
-		//DEBUG((EFI_D_INFO, "[MyWizardDriver] Not Supported \r\n"));
-		//return Status; // Bail out if OpenProtocol returns an error
-		Status = CreateNVVariable();
-		if (EFI_ERROR(Status)) {
-           DEBUG((EFI_D_ERROR, "[MyWizardDriver] Not Supported \r\n"));
-        }else{
-           DEBUG((EFI_D_ERROR, "[MyWizardDriver] Supported \r\n"));
-        }
-        return Status; // Status now depends on CreateNVVariable Function
+		DEBUG((EFI_D_ERROR, "[MyWizardDriver] NV Variable already created \r\n"));
+	}
+	else {
+		DEBUG((EFI_D_ERROR, "[MyWizardDriver] Created NV Variable in the Start \r\n"));
+	}
+
+
+	return EFI_SUCCESS;
 ```
 
+---
 
 ## Slide 34 @title[Lab 5: Add new function ]
-<p align="left">Lab 5: Update MyWizardDriver.c</p>
+### Lab 5: Update MyWizardDriver.c</p>
 <b>Copy & Paste</b>&nbsp;&nbsp; the new function before the call to `MyWizardDriverDriverEntryPoint()`
 <br>
 <hr>
@@ -671,10 +723,10 @@ MYWIZARDDRIVER_CONFIGURATION   *mMyWizDrv_Conf = &mMyWizDrv_Conf_buffer;  //use 
 
 ```	  
 
-<hr>
+---
 
 ## Slide 35 @title[Lab 5: Update .h]
-<p align="left">Lab 5: Update MyWizardDriver.h</p>
+### Lab 5: Update MyWizardDriver.h
 <b>Open</b>&nbsp;&nbsp; "`C:/FW/edk2-ws/edk2/MyWizardDriver/MyWizardDriver.h`"<br>
 <b>Copy & Paste</b>&nbsp;&nbsp; the following "#include" after the list of library include statements:
 
@@ -694,13 +746,14 @@ MYWIZARDDRIVER_CONFIGURATION   *mMyWizDrv_Conf = &mMyWizDrv_Conf_buffer;  //use 
 
  ```
 <b>Save</b>&nbsp;&nbsp; "`C:/FW/edk2-ws/edk2/MyWizardDriver/MyWizardDriver.h`"<br>
+
 <b>Save</b>&nbsp;&nbsp; "`C:/FW/edk2-ws/edk2/MyWizardDriver/MyWizardDriver.c`"	  
 
 
-
+---
 
 ## Slide 36 @title[Lab 5 Build and Test Driver]
-<p align="left">Lab 5: Build and Test Driver</p>
+### Lab 5: Build and Test Driver
 
 Build the MyWizardDriver 
 
@@ -712,28 +765,40 @@ Build the MyWizardDriver
 ```
 
 <b>Load</b> the UEFI Driver <br>
-&nbsp;&nbsp;&nbsp;<font color="gray">`Shell> `</font>`fs0:`<br>
-&nbsp;&nbsp;&nbsp;<font color="gray">`FS0:\> `&nbsp;</font>`load MyWizardDriver.efi`<br>
-Observe the Buffer address returned by the debug statement in the VS Command window
+
+&nbsp;&nbsp;&nbsp; `Shell> fs0:`<br>
+&nbsp;&nbsp;&nbsp; `FS0:\> `&nbsp;`load MyWizardDriver.efi`<br>
 
 
+Observe the Buffer address returned by the debug statement in the VS Command window and the new NV Variable was created
+
+
+---
 
 ## Slide 37 @title[Lab 5 Verify Driver]
-<p align="left">Lab 5: Verify Driver</p>
+### Lab 5: Verify Driver</p>
 <br>
-At the Shell prompt, type&nbsp;&nbsp; <font color="gray">`FS0:\> `&nbsp;</font>`mem 0x25DE4F5C018`<br>
+
+Use the Buffer address pointer in the previous slide then use the “`mem`” command
+
+
+At the Shell prompt, use the `mem` command with the address of the buffer observed from the VS Command window then type&nbsp;&nbsp;  `FS0:\>`&nbsp;`mem 0x1be2d978018` <br>
+
 Observe the Buffer is filled with the letter "B" or 0x0042 <br>
 
+---
 
 ## Slide 38 @title[Lab 5 Verify NVRAM Driver]
-<p align="left">Lab 5: Verify NVRAM Created by Driver</p>
+### Lab 5: Verify NVRAM Created by Driver</p>
 <br>
-At the Shell prompt, type &nbsp;&nbsp;<font color="gray">`FS0:\> `</font>`dmpstore -all -b`<br>
+
+At the Shell prompt, type &nbsp;&nbsp; `FS0:\> dmpstore -all -b`<br>
 
 Observe new the NVRAM variable "`MWD_NVData`" was created and filled with 0x00s<br>
 
 <br>
-Exit, type <font color="gray">`FS0:/ >`</font> `Reset`
+
+Exit, type  `FS0:/> Reset`
 
 Note:
 
@@ -744,8 +809,8 @@ End of Lab 5
 ---
 ## Slide 39 @title[Lab 6: Port Stop and Unload]
 <br>
-<br>
-<p align="Left">Lab 6: Port Stop and Unload </p>
+
+### Lab 6: Port Stop and Unload 
 <br>
 
 In this lab, you’ll port the driver’s “Unload” and “Stop” functions to free any resources the driver allocated when it was loaded and started.
@@ -753,8 +818,8 @@ In this lab, you’ll port the driver’s “Unload” and “Stop” functions 
  
 ---
 ## Slide 40 @title[Lab 6: Port the Unload]
-<p align="left">Lab 6: Port the Unload function</p>
-<br>
+### Lab 6: Port the Unload function
+
 <b>Open</b>&nbsp;&nbsp; "`C:/FW/edk2-ws/edk2/MyWizardDriver/MyWizardDriver.c`"<br>
 <b>Locate</b>&nbsp;&nbsp;"`MyWizardDriverUnload ()`" function<br>
 <b>Copy & Paste</b>&nbsp;&nbsp;the following "`if`"  and "`DEBUG`" statements before the "`return EFI_SUCCESS;`" statement.
@@ -775,7 +840,7 @@ In this lab, you’ll port the driver’s “Unload” and “Stop” functions 
 Note:
 
 - The code will deallocate the buffer using the FreePool library function.
-- Notice that the FreePool is called since there was an allocat call to get memory in the start function
+- Notice that the FreePool is called since there was an allocate call to get memory in the start function
 - for the Unload similar "unwind" calls such as
   - free memory
   - Uninstall Protocol Interfaces
@@ -784,7 +849,7 @@ Note:
 
 ---
 ## Slide 41 @title[Lab 6: Port the Stop]
-<p align="left">Lab 6: Port the Stop function</p>
+### Lab 6: Port the Stop function</p>
 <b>Locate</b>&nbsp;&nbsp;"`MyWizardDriverDriverBindingStop()`" function<br>
 <b>Comment out</b>&nbsp;&nbsp; with "`//`" before the "`return EFI_UNSUPPORTED;`" statement.<br>
 <b>Copy & Paste</b>&nbsp;&nbsp; the following "`if`"  and "`DEBUG`" statements in place of the "`return EFI_UNSUPPORTED;`" statement.</p>
@@ -807,16 +872,16 @@ Note:
 
 - The code will deallocate the buffer using the FreePool library function.
 - This a duplicate of the check performed in the unload function, in case the stop function was executed prior to unload.
-- Notice that the FreePool is called since there was an allocat call to get memory in the start function
+- Notice that the FreePool is called since there was an allocate call to get memory in the start function
 - for the stop similar "unwind" calls to mimic same functions in the start
   - free memory for Alocate memory
   - Uninstall Protocol Interfaces  for Install interfaces
   
     
-
+---
 
 ## Slide 42 @title[Lab 6 Build and Test Driver]
-<p align="left">Lab 6: Build and Test Driver</span></p>
+### Lab 6: Build and Test Driver</span></p>
 
 Build the MyWizardDriver 
 
@@ -826,15 +891,17 @@ Build the MyWizardDriver
 ```
 
 <b>Load</b> the UEFI Driver <br>
-&nbsp;&nbsp;&nbsp;<font color="gray">`Shell> `</font>`fs0:`<br>
-&nbsp;&nbsp;&nbsp;<font color="gray">`FS0:\> `&nbsp;</font>`load MyWizardDriver.efi`<br>
+
+&nbsp;&nbsp;&nbsp; `Shell> fs0:`<br>
+&nbsp;&nbsp;&nbsp; `FS0:\> `&nbsp;`load MyWizardDriver.efi`<br>
 Observe the Buffer address is at `0x25DE4F5C018` as this slide example<br>
 
 
 ## Slide 43 @title[Lab 6 Verify Driver]
-<p align="left">Lab 6: Verify Driver</p>
+### Lab 6: Verify Driver</p>
 <br>
-At the Shell prompt, type &nbsp;<font color="gray">`FS0:\> `&nbsp;</font>`drivers`<br>
+
+At the Shell prompt, type &nbsp; `FS0:\> `&nbsp;`drivers`<br>
 <br>
 
 Observe the handle is "`A9`" as this slide example <br>
@@ -844,25 +911,27 @@ Observe the buffer was filled with the "0x0042" <br>
 
 
 ## Slide 44 @title[Lab 6 Verify Unload]
-<p align="left">Lab 6: Verify Unload</p>
-<br>
-At the Shell prompt, type &nbsp;<font color="gray">`FS0:\> `&nbsp;</font>`unload a9`<br>
+### Lab 6: Verify Unload</p>
+
+
+At the Shell prompt, type &nbsp; `FS0:\> `&nbsp;`unload a9`<br>
 <br>
 
 Observe the DEBUG messages from the Unload<br><br>
 Type `Drivers` again to verify<br>
 
-
+---
 ## Slide 45 @title[Lab 6 Verify Unload]
-<p align="left">Lab 6: Verify Unload</p>
+### Lab 6: Verify Unload</p>
 <br>
-At the Shell prompt, type &nbsp;<font color="gray">`FS0:\> `&nbsp;</font>`mem 0x25DE4F5C018 -b`<br>
+
+At the Shell prompt, type &nbsp; `FS0:\> `&nbsp;`mem 0x25DE4F5C018 -b`<br>
 <br>
 
 Observe the buffer is now NOT filled <br>
 <br>
 
-Exit, type <font color="gray">`FS0:/ >`</font> `Reset`<br>
+Exit, type  `FS0:/> Reset`<br>
 
 Note:
 End of Lab 6
@@ -870,7 +939,7 @@ End of Lab 6
 ---
 
 ## Slide 46 @title[Additional Porting]
-<p align="left">Additional Porting</span></p>  
+### Additional Porting</span></p>  
 <br>
 
 - Adding strings and forms to setup (HII)
@@ -886,39 +955,41 @@ Use the UEFI Driver Wizard to create a starting point for new drivers on EDK II
 
 ---  
 ## Slide 47 @title[Summary]
-<BR>
-<p align="left">Summary </p><br>
+
+### Summary <br>
 <ul>
  <li>Compile a UEFI driver template created fromUEFI Driver Wizard </li>
- <li>Test driver w/ Nt32 emulation using UEFI Shell 2.0</li>
+ <li>Test driver w/ Windows emulation using UEFI Shell 2.0</li>
  <li>Port code into the template driver </li>
 </ul>
 
 ---
 ## Slide 48 @title[Questions]
 <br>
-![Questions](/assets/images/questions.JPG) 
+
 
 ---
-## Slide 49 @title[Questions]
+## Slide 49 @title[Return to Training schedule main page]
 <br>
+
 Return to Training schedule main page
 https://github.com/tianocore-training/Tianocore_Training_Contents/wiki 
+
 ---
 
 ## Slide 50 @title[Logo Slide]
 <br><br><br>
-![Logo Slide](/assets/images/TianocoreLogo.png =10x)
+
 
 
 ---
 ## Slide 51 @title[Acknowledgements]
 
-```c++
+```
 Redistribution and use in source (original document form) and 'compiled‘ forms (converted to PDF, epub, HTML and other formats) with or without modification, are permitted provided that the following conditions are met:
 Redistributions of source code (original document form) must retain the above copyright notice, this list of conditions and the following disclaimer as the first lines of this file unmodified.
 Redistributions in compiled form (transformed to other DTDs, converted to PDF, epub, HTML and other formats) must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
 THIS DOCUMENTATION IS PROVIDED BY TIANOCORE PROJECT "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL TIANOCORE PROJECT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-Copyright (c) 2019, Intel Corporation. All rights reserved.
+Copyright (c) 2020, Intel Corporation. All rights reserved.
 ```
 
